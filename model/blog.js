@@ -30,4 +30,4 @@ const blogsChema = new mongoose.Schema({
 // export the schema || the Blog inside the model is the naem of the collection in the database
 const Blog = mongoose.model('Blog', blogsChema);
 // here we export the model in order to use it in the other files sever.js file
-module.exports = mongoose.model("Blog", blogsChema);
+module.exports = Blog

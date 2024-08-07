@@ -1,11 +1,17 @@
 const express = require('express');
 const { env, title } = require('process');
 const app = express();
+const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
 const blogsChema = require("./model/blog")
 const fs = require("fs")
 const path = require("path")
 const port = process.env.Port || 3000;
+
+
+// import route
+const authRoutes = require("./routes/auth.js")
+const blogRoutes = require("./routes/blogPost.js")
 
 app.set("view engine", "ejs");
 require("dotenv").config();
@@ -42,3 +48,6 @@ var obj = {
 const blog = blogsChema.create(obj)
 
 })
+
+app.use("api/auth", authRoutes)
+app.use("api/blogs",blogRoutes)
