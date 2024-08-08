@@ -10,26 +10,26 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 
-
-// import route
-const authRoutes = require("./routes/auth.js")
-const blogRoutes = require("./routes/blogPost.js")
-// template engine
-app.set("views",));
-app.set("view engine", "ejs");
-require("dotenv").config();
 // body parser
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static.public);
 app.use(express.json());
+// import route
+const authRoutes = require("./routes/auth.js")
+const blogRoutes = require("./routes/blogPost.js")
+// template engine
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+require("dotenv").config();
+
 
 
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
-app.listen(PORT, ()=>{
-   console.log(`serveer is listining in Port ${PORT}`)
+app.listen(port, ()=>{
+   console.log(`serveer is listining in Port ${port}`)
 })
 
 
