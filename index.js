@@ -15,7 +15,7 @@ const app = express();
 const authRoutes = require("./routes/auth.js")
 const blogRoutes = require("./routes/blogPost.js")
 // template engine
-app.set("views", path.join(__dirname, "views"));
+app.set("views",));
 app.set("view engine", "ejs");
 require("dotenv").config();
 // body parser
